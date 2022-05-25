@@ -1,11 +1,11 @@
-<div class="card shadow-sm bg-dark">
+<div class="card shadow-sm bg-dark mt-3">
     <div class="card-body">
-      <h5 class="card-title text-center">{{ itemVariant.name }}</h5>
+      <h5 class="card-title text-center text-white">{{ itemToShow?.name }}</h5>
       <div class="col d-flex justify-content-center">
         <div
           class="card-text text-center badge bg-success text-wrap rounded-pill border-1 mb-2"
         >
-          ${{ itemVariant.value | number }}
+          ${{ itemToShow?.value | number }}
         </div>
       </div>
     </div>

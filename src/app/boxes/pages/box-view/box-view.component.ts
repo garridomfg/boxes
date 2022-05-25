@@ -3,7 +3,7 @@ import { ActivatedRoute } from '@angular/router';
 import { BoxesService } from '../../services/boxes.service';
 import { Apollo } from 'apollo-angular';
 import { OPEN_BOX } from '../../../graphql/graphql.mutations';
-import { ItemVariant } from '../../interfaces/boxes.interfaces';
+import { ItemVariant, BoxOpening } from '../../interfaces/boxes.interfaces';
 
 @Component({
   selector: 'app-box-view',
@@ -13,7 +13,7 @@ import { ItemVariant } from '../../interfaces/boxes.interfaces';
 export class BoxViewComponent implements OnInit {
   public box: any;
   public err: string = '';
-  public itemVariant: ItemVariant | undefined
+  public itemVariant: BoxOpening | undefined
   public loading: boolean = false;
 
   constructor(
@@ -47,7 +47,7 @@ export class BoxViewComponent implements OnInit {
       .subscribe(
         (data: any) => {
           this.loading = false;
-          this.itemVariant = data.data.openBox.boxOpenings
+          this.itemVariant = data.data.openBox.boxOpenings[0]
           return data;
         },
         (error) => {

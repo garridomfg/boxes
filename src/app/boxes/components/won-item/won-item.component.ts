@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { ItemVariant } from '../../interfaces/boxes.interfaces';
+import { ItemVariant, BoxOpening } from '../../interfaces/boxes.interfaces';
 
 @Component({
   selector: 'app-won-item',
@@ -7,13 +7,15 @@ import { ItemVariant } from '../../interfaces/boxes.interfaces';
   styleUrls: ['./won-item.component.scss'],
 })
 export class WonItemComponent implements OnInit {
-  @Input() itemVariant: ItemVariant = {
-    id: '',
-    name: '',
-    value: 0,
-    __typename: '',
-  };
+  @Input() itemVariant: BoxOpening | undefined;
+
+  get itemToShow() {
+    return this.itemVariant?.itemVariant
+  }
+
   constructor() {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(this.itemVariant?.itemVariant)
+  }
 }
