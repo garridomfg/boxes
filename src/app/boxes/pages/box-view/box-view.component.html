@@ -23,7 +23,7 @@
             <a
               [routerLink]="['/box', box?.node.id]"
               class="d-flex justify-content-center btn btn-warning"
-              (click)="openBox('Qm94OjczOQ', 1, 1)"
+              (click)="openBox(box?.node.id)"
               >Open box</a
             >
           </div>
@@ -40,6 +40,7 @@
       >
         {{ err }}
       </div>
+      <app-won-item *ngIf="itemVariant" [itemVariant]="itemVariant"></app-won-item>
     </div>
   </div>
 </div>
